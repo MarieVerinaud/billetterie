@@ -15,6 +15,7 @@ class ComposerStaticInit36610faa95101d0e1539a7bf4c1f3a7e
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
+        '578d079de5cdba2b05d0af0a658c50d4' => __DIR__ . '/..' . '/crysalead/kahlan/src/init.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -49,6 +50,10 @@ class ComposerStaticInit36610faa95101d0e1539a7bf4c1f3a7e
         'M' => 
         array (
             'Monolog\\' => 8,
+        ),
+        'K' => 
+        array (
+            'Kahlan\\' => 7,
         ),
         'I' => 
         array (
@@ -144,6 +149,10 @@ class ComposerStaticInit36610faa95101d0e1539a7bf4c1f3a7e
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Kahlan\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/crysalead/kahlan/src',
         ),
         'Incenteev\\ParameterHandler\\' => 
         array (

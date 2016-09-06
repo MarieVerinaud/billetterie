@@ -16,7 +16,8 @@ class BilletterieFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('visitDate', DateType::class, [
+            ->add('dateVisit', DateType::class, [
+                'format' => 'dd/MM/yyyy',
                 'widget' => 'single_text',
                 'attr' => [
                     'class' => 'js-datepicker',
@@ -32,13 +33,15 @@ class BilletterieFormType extends AbstractType
                     'Demi-journée' => 0.5
                 ]
             ])
-            ->add('quantite', IntegerType::class)
+            ->add('nbDeBillets', IntegerType::class)
             ->add('email', EmailType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\Reservation'
+        ]);
     }
 
 

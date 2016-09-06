@@ -1,12 +1,12 @@
 {{ form_start(form) }}
-    {{ form_row(form.visitDate, {
+    {{ form_row(form.dateVisit, {
         'label': 'Date souhaitée'
     }) }}
     <p><em>Pour information, le musée est fermé tous les mardis ainsi que les 1er mai, 1er novembre et 25 décembre</em></p>
     {{ form_row(form.duree, {
         'label': 'Durée'
     }) }}
-    {{ form_row(form.quantite, {
+    {{ form_row(form.nbDeBillets, {
         'label': 'Quantité'
     }) }}
     {{ form_row(form.email) }}
