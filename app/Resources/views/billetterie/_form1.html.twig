@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+    {{ form_row(form.visitDate, {
+        'label': 'Date souhaitée'
+    }) }}
+    <p><em>Pour information, le musée est fermé tous les mardis ainsi que les 1er mai, 1er novembre et 25 décembre</em></p>
+    {{ form_row(form.duree, {
+        'label': 'Durée'
+    }) }}
+    {{ form_row(form.quantite, {
+        'label': 'Quantité'
+    }) }}
+    {{ form_row(form.email) }}
+
+    <button type="submit" class="btn btn-default" formnovalidate>Passer à l'étape suivante</button>
+    <br>
+{{ form_end(form) }}

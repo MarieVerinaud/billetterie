@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Billetterie du Louvre!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="icon" type="image/png" href="{{ asset('images/favicon.ico') }}" />
+            <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href=""{{ asset('images/favicon.ico') }}" /><![endif]-->
+        {% endblock %}
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+                <h1>Bienvenue sur le site officiel de la billetterie du Louvre</h1>
+            <div class="row">
+                {% block body %}
+
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+
+        {% block javascripts %}
+            <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        {% endblock %}
+    </body>
+</html>
