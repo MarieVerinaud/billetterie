@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BilletterieFormType extends AbstractType
+class ReservationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -21,7 +21,8 @@ class BilletterieFormType extends AbstractType
                 'widget' => 'single_text',
                 'attr' => [
                     'class' => 'js-datepicker',
-                    'readonly' => 'readonly'
+                    'readonly' => 'readonly',
+                    'required' => true
                 ],
                 'html5' => false
             ])
@@ -40,7 +41,7 @@ class BilletterieFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Reservation'
+            'data_class' => 'AppBundle\FormsData\FormReservationData'
         ]);
     }
 

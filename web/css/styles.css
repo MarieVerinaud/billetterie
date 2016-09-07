@@ -1,19 +1,3 @@
-h1{
-    color: white;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-h2{
-    text-align: center;
-}
-
-.btn{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 body{
     background-image: url(../images/louvre.png);
     background-size: cover;
@@ -25,7 +9,18 @@ body{
     overflow: hidden;
     margin: 0;
 }
+/*Concerne uniquement le titre principal du site*/
+h1{
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+}
+/*Concerne les titres de chaque partie*/
+h2{
+    text-align: center;
+}
 
+/*Cela concerne le bouton de la page d'accueil*/
 .button{
     display: block;
     margin-left: auto;
@@ -33,10 +28,16 @@ body{
     margin-top: 350px;
     width: 320px;
 }
-
+/*Cela défini la zone blanche entourant un formulaire*/
 .form{
     background: rgba(255, 255, 255, 0.7);
     width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
     display: block;
     margin-left: auto;
     margin-right: auto;
