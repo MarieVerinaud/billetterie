@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\ReservationFormType;
+use AppBundle\Form\VisiteurFormType;
 use AppBundle\FormsData\FormReservationData;
 use AppBundle\ReservationChecker\ReservationChecker;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -27,15 +28,12 @@ class MainController extends Controller
         if($form->isSubmitted()&& $form->isValid())
         {
             $reservation = $form->getData();
-            dump($reservation);die;
             $reservationChecker = new ReservationChecker();
+            $reservationCheckerOk = $reservationChecker->isValidReservation($reservation);
+            dump($reservationCheckerOk); die;
             if($reservationChecker->isValidReservation($reservation))
             {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($reservation);
-                $em->flush();
-
-                return $this->render('billetterie_form_2');
+                return $this->redirectToRoute('billetterie_form_2');
             }
 
             return $this->render(':billetterie:reservation.html.twig', [
@@ -45,6 +43,26 @@ class MainController extends Controller
         }
 
         return $this->render(':billetterie:reservation.html.twig', [
+            'form' => $form->createView()
+        ]);
+
+    }
+
+    /**
+     * @Route("/billetterie/visiteurs", name="billetterie_form_2")
+     */
+    public function visiteurInfoAction(Request $request)
+    {
+        $form = $this->createForm(VisiteurFormType::class);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted()&& $form->isValid())
+        {
+            $visiteur = $form->getData();
+
+        }
+
+        return $this->render(':billetterie:visiteur.html.twig', [
             'form' => $form->createView()
         ]);
 

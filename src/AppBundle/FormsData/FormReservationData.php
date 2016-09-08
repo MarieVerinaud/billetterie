@@ -13,7 +13,10 @@ class FormReservationData
      */
     private $dateVisit;
     /**
-     * @Assert\NotBlank(message="Merci de sélectionner la durée souhaitée.")
+     * @Assert\Choice(
+     *     choices={"0.5", "1"},
+     *     message="Merci de sélectionner la durée souhaitée."
+     * )
      */
     private $duree;
     /**
@@ -23,6 +26,7 @@ class FormReservationData
     private $nbDeBillets;
     /**
      * @Assert\NotBlank(message="L'email renseigné n'est pas valide.")
+     * @Assert\Email()
      */
     private $email;
 
