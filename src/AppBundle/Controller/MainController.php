@@ -29,11 +29,13 @@ class MainController extends Controller
         {
             $reservation = $form->getData();
             $reservationChecker = new ReservationChecker();
-            $reservationCheckerOk = $reservationChecker->isValidReservation($reservation);
-            dump($reservationCheckerOk); die;
+            /*$reservationCheckerOk = $reservationChecker->isValidReservation($reservation);
+            dump($reservationCheckerOk); die;*/
             if($reservationChecker->isValidReservation($reservation))
             {
-                return $this->redirectToRoute('billetterie_form_2');
+                return $this->redirectToRoute('billetterie_form_2', [
+                    'reservation' => $reservation
+                ]);
             }
 
             return $this->render(':billetterie:reservation.html.twig', [

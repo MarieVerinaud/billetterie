@@ -10,7 +10,7 @@ class ReservationChecker
     {
         //Vérifier que la date n'est pas un mardi
         $date = $reservation->getDateVisit()->format('w');
-        dump($this->isATuesday($date));
+        //dump($this->isATuesday($date));
         if($this->isATuesday($date))
         {
             return false;
@@ -18,7 +18,7 @@ class ReservationChecker
 
         //Vérifier que la date n'est pas un jour férié
         $date = $reservation->getDateVisit()->format('d/m');
-        dump($this->isBankHoliday($date));
+        //dump($this->isBankHoliday($date));
         if($this->isBankHoliday($date))
         {
             return false;
@@ -26,18 +26,20 @@ class ReservationChecker
 
         //Vérifier que la date n'est pas antérieure à aujourd'hui
         $date = $reservation->getDateVisit();
-        dump($this->isOlderThanToday($date));
+        //dump($this->isOlderThanToday($date));
         if($this->isOlderThanToday($date))
         {
             return false;
         }
 
-        //Vérifier l'heure pour la demi-journee
+        //Vérifier l'heure pour la journée
         $duree = $reservation->getDuree();
-        $date = $reservation->getDateVisit();
-        $dateResa = new \DateTime();
-        $heure= $dateResa->format('G');
-        if(!$this->isValidTime($duree, $date, $heure))
+        $dateVisite = $reservation->getDateVisit()->format('d/m/Y');
+        date_default_timezone_set('Europe/Paris');
+        $date = new \DateTime();
+        $heure= $date->format('G');
+        $dateResa = $date->format('d/m/Y');
+        if(!$this->isValidTime($duree, $dateVisite, $heure, $dateResa))
         {
             return false;
         }
@@ -60,19 +62,19 @@ class ReservationChecker
 
     private function isOlderThanToday($date)
     {
-        dump($date >= new \DateTime());
+        //dump($date >= new \DateTime());
         return ($date >= new \DateTime());
     }
 
-    private function isValidTime($duree, $date, $heure)
+    private function isValidTime($duree, $dateVisite, $heure, $dateResa)
     {
-        dump($duree);
-        dump($date);
+        /*dump($duree);
+        dump($dateVisite);
+        dump($dateResa);
         dump($heure);
-        dump($date === new \DateTime());
-        dump($heure>12);
-        die;
-        if($duree === 1 && $date === new \DateTime() && $heure>12)
+        dump($dateResa === $dateVisite);
+        dump($heure>13);*/
+        if($duree === 1 && $dateResa === $dateVisite && $heure>13)
         {
             return false;
         }
